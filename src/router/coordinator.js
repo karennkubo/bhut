@@ -5,3 +5,7 @@ export const goToHomePage = (navigate) => {
 export const goToPostPage = (navigate, id) => {
     navigate(`/post`)
 }
+
+export const goToUpdatePage = (navigate, id) => {
+    navigate(`/${id}`)
+}

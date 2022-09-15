@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import 'bootstrap/dist/css/bootstrap.css';
+import useForm from '../../hooks/useForm';
+import { getCarById } from '../../services/cars';
 import { Button } from 'react-bootstrap';
+import { useParams } from 'react-router-dom';
 import Form from 'react-bootstrap/Form';
+import { updateCar } from './../../services/cars';
 import { DivForm } from './styles';
-import useForm from './../../hooks/useForm';
-import { createCar } from './../../services/cars';
 import Heading from './../../components/Heading/Heading';
 
-export default function Post() {
+export default function Update() {
+  const params = useParams();
 
-  const { form, InputChange, clear } = useForm({
+  const { form, InputChange, setForm } = useForm({
     title: "",
     brand: "",
     price: "",
@@ -17,14 +21,18 @@ export default function Post() {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    createCar(form);
-    clear();
+    updateCar(params.id, form);
   }
+
+  useEffect(() => {
+    getCarById(params.id, setForm)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   return (
     <DivForm>
-      <Heading/>
-      
+      <Heading />
+
       <Form className="col-md-4 col-md-offset-4" style={{ margin: 'auto' }} onSubmit={onSubmit}>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" >
@@ -49,7 +57,8 @@ export default function Post() {
 
         <Button type="submit">Submit</Button>
       </Form>
-      <p style={{textAlign: 'center'}}>© 2022 Developed by Karen Naomi Cardoso Kubo</p>
+      <p style={{ textAlign: 'center'}}>© 2022 Developed by Karen Naomi Cardoso Kubo</p>
+
     </DivForm>
   )
 }

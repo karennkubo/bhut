@@ -1,15 +1,13 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import { Button } from 'react-bootstrap';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/BASE_URL';
 import Cards from '../../components/Card/Cards';
-import { DivCards } from './styles';
-import { goToHomePage, goToPostPage } from './../../router/coordinator';
-import { useNavigate } from 'react-router-dom';
+import { DivCards, DivHome } from './styles';
+import { toast } from 'react-toastify';
+import Heading from './../../components/Heading/Heading';
 
 export default function Home() {
-  const navigate = useNavigate();
   const [cars, setCars] = useState([]);
 
   const getCars = async () => {
@@ -18,8 +16,10 @@ export default function Home() {
       .then((res) => {
         setCars(res.data)
       })
-      .catch((err) => {
-        alert(err.data.msg)      
+      .catch((error) => {
+        toast.error(error.response.data.msg[0], {
+          position: toast.POSITION.TOP_CENTER
+      })
       })
   }
 
@@ -28,11 +28,10 @@ export default function Home() {
   }, [])
 
   return (
-    <div>
-      
-      <Button variant='primary' onClick={()=>{goToPostPage(navigate)}}>Adicionar um novo modelo</Button>
+    <DivHome>
+      <Heading/>
       <DivCards>
-        {cars && cars.map((car) => {
+        {cars ? cars.map((car) => {
           return (
             <Cards
               id={car._id}
@@ -42,8 +41,10 @@ export default function Home() {
               price={car.price}
             />
           )
-        })}
+        }) : <h3>Carregando...</h3>}
+        
       </DivCards>
-    </div>
+      <p style={{textAlign: 'center'}}>© 2022 Developed by Karen Naomi Cardoso Kubo</p>
+    </DivHome>
   )
 }

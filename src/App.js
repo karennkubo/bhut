@@ -1,13 +1,15 @@
 import './App.css';
-import Home from './screens/Home/Home';
 import Router from './router/Router';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.min.css';
 
 function App() {
   return (
-    <Router>
-      <Home/>
-    </Router>
+    <div className='App'>
+      <Router />
+      <ToastContainer />
+    </div>
+
   );
 }
 

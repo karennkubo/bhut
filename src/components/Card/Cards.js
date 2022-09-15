@@ -3,12 +3,14 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
-import { DivButtons } from './styles';
 import { useState } from 'react';
 import CarDetails from '../CarDetails/CarDetails';
 import { deleteCar } from '../../services/cars';
+import { goToUpdatePage } from './../../router/coordinator';
+import { useNavigate } from 'react-router-dom';
 
 export default function Cards(props) {
+  const navigate = useNavigate();
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -36,7 +38,7 @@ export default function Cards(props) {
           price={props.price}
         />)}
 
-        <Button variant="warning">Alterar</Button>
+        <Button variant="warning" onClick={()=>{goToUpdatePage(navigate, props.id)}}>Alterar</Button>
 
       </Card.Footer>
     </Card>
