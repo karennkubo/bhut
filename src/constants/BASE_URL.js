@@ -1,0 +1,1 @@
+export const BASE_URL = "http://api-test.bhut.com.br:3000/api";
