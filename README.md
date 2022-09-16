@@ -1,6 +1,6 @@
 <div align="center">
     <img src="https://user-images.githubusercontent.com/98588790/190662763-8827a127-1f7d-4ec3-b4d0-3a1db65be559.gif" alt="Logo Karen Kubo e Bhut" width=200/>
-    <a href=""> <h3> BHUT - Consuming API from 'cars' </h3> </a>
+    <a href=""> <h3> BHUT - Consuming API from <a href="http://api-test.bhut.com.br:3000/api/cars">'cars'</a> </h3> </a>
 </div>
 
 <div align="center">
