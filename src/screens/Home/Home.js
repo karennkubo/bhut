@@ -19,7 +19,7 @@ export default function Home() {
         setCars(res.data)
       })
       .catch((error) => {
-        toast.error(error.response.data.msg[0], {
+        toast.error(error.response.data.msg[0] || error.response.data.msg, {
           position: toast.POSITION.TOP_CENTER
         })
       })
@@ -35,7 +35,7 @@ export default function Home() {
       <DivHome>
 
         <DivCards>
-          {cars.length > 0 ? cars.map((car) => {
+          {cars ? cars.map((car) => {
             return (
               <Cards
                 id={car._id}
