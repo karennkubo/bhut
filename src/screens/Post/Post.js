@@ -28,26 +28,26 @@ export default function Post() {
       <Form className="col-md-4 col-md-offset-4" style={{ margin: 'auto'}} onSubmit={onSubmit}>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ textAlign: 'center' }}>
-          <Form.Label >Title</Form.Label>
+          <Form.Label >Modelo</Form.Label>
           <Form.Control type="text" placeholder="E.g.: Fusca" name="title" value={form.title} onChange={InputChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput2" style={{ textAlign: 'center' }}>
-          <Form.Label>Brand</Form.Label>
+          <Form.Label>Marca</Form.Label>
           <Form.Control type="text" placeholder="E.g.: Ford" name="brand" value={form.brand} onChange={InputChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput3" style={{ textAlign: 'center' }}>
-          <Form.Label className="align-self-center">Price</Form.Label>
+          <Form.Label className="align-self-center">Preço</Form.Label>
           <Form.Control type="text" placeholder="E.g.: 60.000,00" name="price" value={form.price} onChange={InputChange} required />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlInput4" style={{ textAlign: 'center' }}>
-          <Form.Label>Age</Form.Label>
+          <Form.Label>Ano</Form.Label>
           <Form.Control type="number" placeholder="E.g.: 2022" name="age" value={form.age} onChange={InputChange} required />
         </Form.Group>
 
-        <Button type="submit">Submit</Button>
+        <Button type="submit">Enviar</Button>
       </Form>
     </DivForm>
   )
