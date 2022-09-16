@@ -23,33 +23,32 @@ export default function Post() {
 
   return (
     <DivForm>
-      <Heading/>
-      
-      <Form className="col-md-4 col-md-offset-4" style={{ margin: 'auto' }} onSubmit={onSubmit}>
+      <Heading />
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" >
+      <Form className="col-md-4 col-md-offset-4" style={{ margin: 'auto'}} onSubmit={onSubmit}>
+
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1" style={{ textAlign: 'center' }}>
           <Form.Label >Title</Form.Label>
           <Form.Control type="text" placeholder="E.g.: Fusca" name="title" value={form.title} onChange={InputChange} required />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput2" >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput2" style={{ textAlign: 'center' }}>
           <Form.Label>Brand</Form.Label>
           <Form.Control type="text" placeholder="E.g.: Ford" name="brand" value={form.brand} onChange={InputChange} required />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput3" >
-          <Form.Label>Price</Form.Label>
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput3" style={{ textAlign: 'center' }}>
+          <Form.Label className="align-self-center">Price</Form.Label>
           <Form.Control type="text" placeholder="E.g.: 60.000,00" name="price" value={form.price} onChange={InputChange} required />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput4" >
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput4" style={{ textAlign: 'center' }}>
           <Form.Label>Age</Form.Label>
           <Form.Control type="number" placeholder="E.g.: 2022" name="age" value={form.age} onChange={InputChange} required />
         </Form.Group>
 
         <Button type="submit">Submit</Button>
       </Form>
-      <p style={{textAlign: 'center'}}>© 2022 Developed by Karen Naomi Cardoso Kubo</p>
     </DivForm>
   )
 }

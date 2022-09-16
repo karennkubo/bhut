@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import Loading from '../../assets/loading.gif';
 import axios from 'axios';
 import { BASE_URL } from '../../constants/BASE_URL';
 import Cards from '../../components/Card/Cards';
 import { DivCards, DivHome } from './styles';
 import { toast } from 'react-toastify';
 import Heading from './../../components/Heading/Heading';
+import Footer from './../../components/Footer/Footer';
 
 export default function Home() {
   const [cars, setCars] = useState([]);
@@ -19,7 +21,7 @@ export default function Home() {
       .catch((error) => {
         toast.error(error.response.data.msg[0], {
           position: toast.POSITION.TOP_CENTER
-      })
+        })
       })
   }
 
@@ -28,23 +30,28 @@ export default function Home() {
   }, [])
 
   return (
-    <DivHome>
-      <Heading/>
-      <DivCards>
-        {cars ? cars.map((car) => {
-          return (
-            <Cards
-              id={car._id}
-              title={car.title}
-              brand={car.brand}
-              age={car.age}
-              price={car.price}
-            />
-          )
-        }) : <h3>Carregando...</h3>}
-        
-      </DivCards>
-      <p style={{textAlign: 'center'}}>© 2022 Developed by Karen Naomi Cardoso Kubo</p>
-    </DivHome>
+    <>
+      <Heading />
+      <DivHome>
+
+        <DivCards>
+          {cars.length > 0 ? cars.map((car) => {
+            return (
+              <Cards
+                id={car._id}
+                title={car.title}
+                brand={car.brand}
+                age={car.age}
+                price={car.price}
+              />
+            )
+          }) : <img src={Loading} alt="loading" />}
+
+        </DivCards>
+
+      </DivHome>
+      <Footer />
+    </>
+
   )
 }

@@ -14,4 +14,5 @@ export const DivCards = styled.div`
 `
 
 export const DivHome = styled.div`
+
 `
